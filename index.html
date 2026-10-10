@@ -1172,26 +1172,26 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
                     </div>
                 </div>
                 <div class="reveal-up delay-2">
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrpekaob" method="POST">
                         <div class="form-group">
                             <label>Meno a priezvisko</label>
-                            <input type="text" class="form-control" required placeholder="Zadajte vaše meno">
+                            <input type="text" name="meno" class="form-control" required placeholder="Zadajte vaše meno">
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="email" class="form-control" required placeholder="vas@email.sk">
+                            <input type="email" name="email" class="form-control" required placeholder="vas@email.sk">
                         </div>
                         <div class="form-group">
                             <label>Telefónne číslo</label>
-                            <input type="tel" class="form-control" placeholder="+421 ...">
+                            <input type="tel" name="telefon" class="form-control" placeholder="+421 ...">
                         </div>
                         <div class="form-group">
                             <label>Typ nehnuteľnosti</label>
-                            <input type="text" class="form-control" placeholder="napr. 3-izbový byt / dom">
+                            <input type="text" name="typ_nehnutelnosti" class="form-control" placeholder="napr. 3-izbový byt / dom">
                         </div>
                         <div class="form-group">
                             <label>Vaša správa / poznámka</label>
-                            <textarea class="form-control" placeholder="Napíšte nám detaily..."></textarea>
+                            <textarea name="sprava" class="form-control" placeholder="Napíšte nám detaily..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Odoslať nezáväzný dopyt</button>
                     </form>
