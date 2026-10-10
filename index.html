@@ -26,6 +26,7 @@
             --bg-body: #fcfbfa;
             --white: #ffffff;
             --border-color: #eae5de;
+            --success-color: #466352;
         }
 
         body {
@@ -800,9 +801,9 @@
             line-height: 1.65;
         }
 
-        /* FANCY KONTAKT A FORMULÁR */
+        /* ULTRA LUXUSNÝ KONTAKT A FORMULÁR */
         .contact-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1612 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #15120e 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -811,11 +812,11 @@
         .contact-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(140, 120, 99, 0.12) 0%, transparent 70%);
+            top: -30%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(140, 120, 99, 0.2) 0%, transparent 65%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -834,7 +835,7 @@
 
         .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
+            grid-template-columns: 1fr 1.15fr;
             gap: 60px;
             align-items: start;
         }
@@ -859,7 +860,7 @@
 
         @keyframes infiniteGlow {
             0%, 100% { box-shadow: 0 0 8px var(--accent); }
-            50% { box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+            50% { box-shadow: 0 0 22px var(--accent), 0 0 35px var(--accent); }
         }
 
         .css-dot-icon {
@@ -887,50 +888,66 @@
             font-weight: 500;
         }
 
-        .contact-form {
-            background: rgba(45, 38, 31, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        .form-container-box {
+            position: relative;
+            background: rgba(38, 32, 26, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             padding: 48px;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(140, 120, 99, 0.25);
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(140, 120, 99, 0.35);
             transition: all 0.4s ease;
+            overflow: hidden;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .contact-form:hover {
-            border-color: rgba(140, 120, 99, 0.5);
-            box-shadow: 0 35px 70px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        .form-container-box:hover {
+            border-color: rgba(140, 120, 99, 0.65);
+            box-shadow: 0 45px 90px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        }
+
+        #contact-form {
+            width: 100%;
+            transition: opacity 0.3s ease;
         }
 
         .form-group {
             margin-bottom: 22px;
+            position: relative;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-size: 0.8rem;
-            color: #d8d0c7;
+            color: #dcd3c8;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             font-weight: 700;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
 
         .form-group:hover label {
             color: var(--accent);
         }
 
+        .input-wrapper {
+            position: relative;
+        }
+
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            background: rgba(30, 25, 20, 0.9);
-            border: 1px solid rgba(100, 85, 70, 0.4);
-            border-radius: 12px;
+            padding: 16px 48px 16px 20px;
+            background: rgba(20, 16, 12, 0.9);
+            border: 1px solid rgba(110, 95, 80, 0.4);
+            border-radius: 14px;
             color: var(--white);
             font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .form-control::placeholder {
@@ -940,59 +957,167 @@
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            background: rgba(20, 16, 13, 0.95);
-            box-shadow: 0 0 0 4px rgba(140, 120, 99, 0.2);
-            transform: translateY(-1px);
+            background: rgba(12, 10, 8, 0.98);
+            box-shadow: 0 0 0 5px rgba(140, 120, 99, 0.25);
+            transform: translateY(-2px);
         }
 
         textarea.form-control {
+            padding-right: 20px;
             resize: vertical;
             height: 120px;
         }
 
+        /* ČISTO CSS FAJKA PRE LIVE VALIDÁCIU */
+        .validation-check {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--success-color) 0%, #344c3e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(70, 99, 82, 0.5);
+            pointer-events: none;
+        }
+
+        .validation-check::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .form-group.is-valid .validation-check {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .form-group.is-valid .form-control {
+            border-color: var(--success-color);
+            background: rgba(20, 30, 24, 0.4);
+        }
+
         .form-btn-submit {
-            background: linear-gradient(135deg, var(--accent) 0%, #736250 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #685544 100%);
             color: var(--white);
             border: none;
             width: 100%;
             padding: 18px;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 25px rgba(140, 120, 99, 0.35);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 12px 30px rgba(140, 120, 99, 0.4);
             margin-top: 10px;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .form-btn-submit:hover {
-            background: linear-gradient(135deg, #9e8871 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, #a38c73 0%, var(--accent) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(140, 120, 99, 0.5);
+            box-shadow: 0 18px 35px rgba(140, 120, 99, 0.6);
         }
 
         .form-btn-submit:active {
             transform: translateY(-1px);
         }
 
-        .success-msg {
-            display: none;
-            background: linear-gradient(135deg, #466352 0%, #344c3e 100%);
-            color: white;
-            padding: 28px;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 15px 35px rgba(70, 99, 82, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            animation: fadeInUp 0.5s ease forwards;
+        /* VNÚTORNÝ ANIMAČNÝ KRUH (SUCCESS BOX ANIMATION) */
+        .success-box-anim {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .success-box-anim.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .success-circle-grow {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #466352;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .success-box-anim.active .success-circle-grow {
+            transform: scale(35);
+        }
+
+        .success-content-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transform: scale(0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s;
+        }
+
+        .success-box-anim.active .success-content-inner {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .success-check-badge {
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .success-check-badge::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 29px;
+            width: 12px;
+            height: 22px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .success-content-inner h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .success-content-inner p {
+            font-size: 1rem;
+            color: #e5ede8;
         }
 
         footer {
@@ -1077,7 +1202,7 @@
                 <div class="team-info">
                     <h3>Katka</h3>
                     <span class="team-role">Miluje farby a zmeny</span>
-                    <p>Katka má za sebou 20 rokov podnikania, počas ktorých jej rukami prešli dekorácie, svadobné výzdoby, materiály na prerábky aj nespočetné množstvo kreatívnych nápadov. Za tie roky si vybudovala nielen cit pre detail, ale aj sieť kontaktov na veľkoobchody v zahraničí. Vie hľadať za hranicami bežnej ponuky a dostať sa aj ku kúskom, ktoré niekto márne zháňa. Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že práve nečakané kombinácie dokážu dať priestoru osobitosť.</p>
+                    <p>Katka má za sebou 20 rokov podnikania, počas ktorých jej rukami prešli dekorácie, svadobné výzdoby, materiály na prerábky aj nespočetné množstvo kreatívnych nápadov. Za tie roky si vybudovala nielen cit pre detail, ale aj sieť kontaktov na veľkoobchody v zahraničí. Vie hľadať za hranicami bežnej ponuky a dostať sa aj ku kúskom, ktoré niekto márne zháňa. Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že práve nečakané kombinacie dokážu dať priestoru osobitosť.</p>
                 </div>
             </div>
             <!-- Daniela -->
@@ -1185,7 +1310,7 @@
         </div>
     </section>
 
-    <!-- KONTAKT & FANCY FORMULÁR -->
+    <!-- KONTAKT & INTERAKTÍVNY FORMULÁR -->
     <section class="section contact-section" id="kontakt">
         <div class="container">
             <div class="section-title reveal-up">
@@ -1216,36 +1341,71 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="reveal-up delay-2">
-                    <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <div class="form-container-box">
                         
-                        <!-- Web3Forms Access Key -->
-                        <input type="hidden" name="access_key" value="2b9c381a-32a6-4bb2-8374-be84ea1b1076">
+                        <!-- VNÚTORNÁ ANIMÁCIA ÚSPEŠNÉHO ODOSLANIA -->
+                        <div class="success-box-anim" id="success-box-anim">
+                            <div class="success-circle-grow"></div>
+                            <div class="success-content-inner">
+                                <div class="success-check-badge"></div>
+                                <h3>Úspešne odoslané</h3>
+                                <p>Ďakujeme, ozveme sa vám.</p>
+                            </div>
+                        </div>
 
-                        <div class="form-group">
-                            <label>Meno a priezvisko</label>
-                            <input type="text" name="meno" class="form-control" required placeholder="Zadajte vaše meno">
-                        </div>
-                        <div class="form-group">
-                            <label>E-mail</label>
-                            <input type="email" name="email" class="form-control" required placeholder="vas@email.sk">
-                        </div>
-                        <div class="form-group">
-                            <label>Telefónne číslo</label>
-                            <input type="tel" name="telefon" class="form-control" placeholder="+421 ...">
-                        </div>
-                        <div class="form-group">
-                            <label>Typ nehnuteľnosti</label>
-                            <input type="text" name="typ_nehnutelnosti" class="form-control" placeholder="napr. 3-izbový byt / dom">
-                        </div>
-                        <div class="form-group">
-                            <label>Vaša správa / poznámka</label>
-                            <textarea name="sprava" class="form-control" placeholder="Napíšte nám detaily..."></textarea>
-                        </div>
-                        <button type="submit" class="form-btn-submit">Odoslať nezáväzný dopyt ✨</button>
-                    </form>
-                    <div class="success-msg" id="success-msg">
-                        ✓ Ďakujeme za Váš dopyt! Správa bola úspešne odoslaná, čoskoro Vás budeme kontaktovať.
+                        <!-- SAMOTNÝ FORMULÁR -->
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                            
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="2b9c381a-32a6-4bb2-8374-be84ea1b1076">
+
+                            <!-- MENO A PRIEZVISKO (>3 znaky) -->
+                            <div class="form-group" id="group-meno">
+                                <label>Meno a priezvisko</label>
+                                <div class="input-wrapper">
+                                    <input type="text" name="meno" id="input-meno" class="form-control" required placeholder="Zadajte vaše meno a priezvisko" autocomplete="name">
+                                    <div class="validation-check"></div>
+                                </div>
+                            </div>
+
+                            <!-- E-MAIL (@) -->
+                            <div class="form-group" id="group-email">
+                                <label>E-mail</label>
+                                <div class="input-wrapper">
+                                    <input type="email" name="email" id="input-email" class="form-control" required placeholder="vas@email.sk" autocomplete="email" inputmode="email">
+                                    <div class="validation-check"></div>
+                                </div>
+                            </div>
+
+                            <!-- TELEFÓNNE ČÍSLO (min. 9 číslic) -->
+                            <div class="form-group" id="group-telefon">
+                                <label>Telefónne číslo</label>
+                                <div class="input-wrapper">
+                                    <input type="tel" name="telefon" id="input-telefon" class="form-control" placeholder="+421 ..." autocomplete="tel">
+                                    <div class="validation-check"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Typ nehnuteľnosti</label>
+                                <div class="input-wrapper">
+                                    <input type="text" name="typ_nehnutelnosti" class="form-control" placeholder="napr. 3-izbový byt / dom">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vaša správa / poznámka</label>
+                                <div class="input-wrapper">
+                                    <textarea name="sprava" class="form-control" placeholder="Napíšte nám detaily..."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="form-btn-submit">
+                                Odoslať nezáväzný dopyt
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1349,14 +1509,54 @@
         const observer = new IntersectionObserver(revealOnScroll, { root: null, threshold: 0.15 });
         revealElements.forEach(el => observer.observe(el));
 
-        // Odoslanie formulára cez Web3Forms s AJAX-om pre pekný efekt
+        // LIVE VALIDÁCIA (Meno, E-mail, Telefón)
+        const inputMeno = document.getElementById('input-meno');
+        const groupMeno = document.getElementById('group-meno');
+        const inputEmail = document.getElementById('input-email');
+        const groupEmail = document.getElementById('group-email');
+        const inputTelefon = document.getElementById('input-telefon');
+        const groupTelefon = document.getElementById('group-telefon');
+
+        inputMeno.addEventListener('input', () => {
+            if (inputMeno.value.trim().length > 3) {
+                groupMeno.classList.add('is-valid');
+            } else {
+                groupMeno.classList.remove('is-valid');
+            }
+        });
+
+        inputEmail.addEventListener('input', () => {
+            const val = inputEmail.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(val)) {
+                groupEmail.classList.add('is-valid');
+            } else {
+                groupEmail.classList.remove('is-valid');
+            }
+        });
+
+        inputTelefon.addEventListener('input', () => {
+            const digitsOnly = inputTelefon.value.replace(/\D/g, '');
+            if (digitsOnly.length >= 9) {
+                groupTelefon.classList.add('is-valid');
+            } else {
+                groupTelefon.classList.remove('is-valid');
+            }
+        });
+
+        // Odoslanie formulára cez Web3Forms s vnútornou kruhovou animáciou a natrvalým uzamknutím
         const contactForm = document.getElementById('contact-form');
-        const successMsg = document.getElementById('success-msg');
+        const successBoxAnim = document.getElementById('success-box-anim');
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
             
+            const submitBtn = contactForm.querySelector('.form-btn-submit');
+            submitBtn.innerHTML = 'Odosielam...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
+
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
@@ -1364,17 +1564,24 @@
                 });
                 
                 if (response.ok) {
-                    contactForm.style.transition = 'opacity 0.4s ease';
+                    // Skryjeme formulár a spustíme kruhovú animáciu priamo v boxe
                     contactForm.style.opacity = '0';
                     setTimeout(() => {
                         contactForm.style.display = 'none';
-                        successMsg.style.display = 'block';
-                    }, 400);
+                        successBoxAnim.classList.add('active');
+                    }, 300);
+
                 } else {
                     alert('Nastala chyba pri odosielaní. Skúste to prosím znova.');
+                    submitBtn.innerHTML = 'Odoslať nezáväzný dopyt';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.disabled = false;
                 }
             } catch (error) {
                 alert('Chyba pripojenia. Skontrolujte internetové pripojenie.');
+                submitBtn.innerHTML = 'Odoslať nezáväzný dopyt';
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
             }
         });
     </script>
