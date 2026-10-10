@@ -511,7 +511,6 @@
             }
         }
 
-        /* Pozadivý obal pre rozostrené plnenie plochy */
         .slider-bg-blur {
             position: absolute;
             inset: 0;
@@ -801,12 +800,24 @@
             line-height: 1.65;
         }
 
-        /* KONTAKT A FORMULÁR */
+        /* FANCY KONTAKT A FORMULÁR */
         .contact-section {
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1612 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(140, 120, 99, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
         .contact-section .section-title h2 {
@@ -823,12 +834,12 @@
 
         .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.1fr;
             gap: 60px;
             align-items: start;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .contact-wrapper {
                 grid-template-columns: 1fr;
             }
@@ -877,29 +888,32 @@
         }
 
         .contact-form {
-            background: #322b23;
+            background: rgba(45, 38, 31, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 48px;
-            border-radius: 16px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-            border: 1px solid #483e33;
-            transition: box-shadow 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(140, 120, 99, 0.25);
+            transition: all 0.4s ease;
         }
 
         .contact-form:hover {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border-color: rgba(140, 120, 99, 0.5);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: #d8d0c7;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             font-weight: 700;
             transition: color 0.2s;
         }
@@ -910,38 +924,75 @@
 
         .form-control {
             width: 100%;
-            padding: 15px 18px;
-            background: #27221b;
-            border: 1px solid #4a3e33;
-            border-radius: 8px;
+            padding: 16px 20px;
+            background: rgba(30, 25, 20, 0.9);
+            border: 1px solid rgba(100, 85, 70, 0.4);
+            border-radius: 12px;
             color: var(--white);
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .form-control::placeholder {
+            color: #7a7065;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            background: #221c15;
-            box-shadow: 0 0 15px rgba(140, 120, 99, 0.25);
+            background: rgba(20, 16, 13, 0.95);
+            box-shadow: 0 0 0 4px rgba(140, 120, 99, 0.2);
+            transform: translateY(-1px);
         }
 
         textarea.form-control {
             resize: vertical;
-            height: 130px;
+            height: 120px;
+        }
+
+        .form-btn-submit {
+            background: linear-gradient(135deg, var(--accent) 0%, #736250 100%);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 25px rgba(140, 120, 99, 0.35);
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-btn-submit:hover {
+            background: linear-gradient(135deg, #9e8871 0%, var(--accent) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(140, 120, 99, 0.5);
+        }
+
+        .form-btn-submit:active {
+            transform: translateY(-1px);
         }
 
         .success-msg {
             display: none;
-            background: #466352;
+            background: linear-gradient(135deg, #466352 0%, #344c3e 100%);
             color: white;
-            padding: 24px;
-            border-radius: 8px;
+            padding: 28px;
+            border-radius: 16px;
             text-align: center;
             font-weight: 600;
             margin-top: 20px;
+            box-shadow: 0 15px 35px rgba(70, 99, 82, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             animation: fadeInUp 0.5s ease forwards;
-            box-shadow: 0 10px 25px rgba(70, 99, 82, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
@@ -997,7 +1048,7 @@
         </div>
     </section>
 
-    <!-- O NÁS / TÍM (PRESUNUTÉ HNED NA ZAČIATOK) -->
+    <!-- O NÁS / TÍM -->
     <section class="section container" id="onas">
         <div class="section-title reveal-up" style="margin-bottom: 30px;">
             <h2>Tri ženy. Tri pohľady. <span class="highlight-text" style="color: var(--accent);">Jeden spoločný cit pre krásu a premenu.</span></h2>
@@ -1026,9 +1077,7 @@
                 <div class="team-info">
                     <h3>Katka</h3>
                     <span class="team-role">Miluje farby a zmeny</span>
-                    <p>Katka má za sebou 20 rokov podnikania, počas ktorých jej rukami prešli dekorácie, svadobné výzdoby, materiály na prerábky aj nespočetné množstvo kreatívnych nápadov. Za tie roky si vybudovala nielen cit pre detail, ale aj sieť kontaktov na veľkoobchody v zahraničí. Vie hľadať za hranicami bežnej ponuky a dostať sa aj ku kúskom, ktoré niekto márne zháňa.
-
-Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že práve nečakané kombinácie dokážu dať priestoru osobitosť. Baví ju objavovať potenciál vecí, hľadať netradičné riešenia a premieňať nápady na skutočnosť. Do HOPLA! prináša skúsenosti, rozhľad a radosť z tvorenia priestorov, ktoré majú vlastný charakter a nie sú ako cez kopirák.</p>
+                    <p>Katka má za sebou 20 rokov podnikania, počas ktorých jej rukami prešli dekorácie, svadobné výzdoby, materiály na prerábky aj nespočetné množstvo kreatívnych nápadov. Za tie roky si vybudovala nielen cit pre detail, ale aj sieť kontaktov na veľkoobchody v zahraničí. Vie hľadať za hranicami bežnej ponuky a dostať sa aj ku kúskom, ktoré niekto márne zháňa. Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že práve nečakané kombinácie dokážu dať priestoru osobitosť.</p>
                 </div>
             </div>
             <!-- Daniela -->
@@ -1038,8 +1087,8 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
                 </div>
                 <div class="team-info">
                     <h3>Daniela</h3>
-                    <span class="team-role">Zváračká na podpätkoch</span>
-                    <p>Daniela je naša zelená víla, praktická duša a milovníčka premien. Baví ju prerábať, vymýšľať a hľadať nové možnosti, pričom jej srdce si získal najmä mid-century štýl. Rastliny sú jej blízke rovnako ako technické výzvy. Má výborné technické myslenie a nezľakne sa ani práce, do ktorej by sa iní nepustili – veď je aj jedinou zváračkou na Slovensku! Jej zmysel pre humor je jedinečný a jej trefné poznámky nemajú konkurenciu. Do HOPLA! prináša šikovné ruky, technické myslenie, praktický pohľad a poriadnu dávku dobrej nálady.</p>
+                    <span class="team-role">Zváračka na podpätkoch</span>
+                    <p>Daniela je naša zelená víla, praktická duša a milovníčka premien. Baví ju prerábať, vymýšľať a hľadať nové možnosti, pričom jej srdce si získal najmä mid-century štýl. Rastliny sú jej blízke rovnako ako technické výzvy. Má výborné technické myslenie a nezľakne sa ani práce, do ktorej by sa iní nepustili – veď je aj jedinou zváračkou na Slovensku! Do HOPLA! prináša šikovné ruky, technické myslenie a poriadnu dávku dobrej nálady.</p>
                 </div>
             </div>
         </div>
@@ -1106,7 +1155,7 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
         </div>
     </section>
 
-    <!-- INTERAKTÍVNA PREMENA (PRED A PO SLIDER) -->
+    <!-- INTERAKTÍVNA PREMENA -->
     <section class="section container" id="premena">
         <div class="section-title reveal-up">
             <h2>Sila profesionálneho homestagingu</h2>
@@ -1114,14 +1163,12 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
         </div>
         <div class="slider-wrapper reveal-up delay-1">
             <div class="comparison-slider" id="comp-slider">
-                <!-- PO (Background image with blur fill) -->
                 <div class="slider-bg-blur" style="background-image: url('images/po.png');"></div>
                 <div class="slider-img">
                     <img src="images/po.png" alt="Po stagingu" onerror="this.onerror=null; this.src='images/po.jpg';">
                     <span class="badge-label badge-right">PO STAGINGU</span>
                 </div>
                 
-                <!-- PRED (Foreground clip image with blur fill) -->
                 <div class="slider-before-wrap" id="before-wrap" style="width: 50%;">
                     <div class="slider-before-bg-blur" id="before-bg-blur" style="background-image: url('images/pred.png');"></div>
                     <div class="slider-before-img" id="before-img">
@@ -1130,17 +1177,15 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
                     </div>
                 </div>
 
-                <!-- SLIDER HANDLE -->
                 <div class="slider-handle" id="slider-handle" style="left: 50%;">
                     <div class="slider-button">&larr;&rarr;</div>
                 </div>
-                <!-- INPUT RANGE -->
                 <input type="range" class="slider-input" id="slider-range" min="0" max="100" value="50">
             </div>
         </div>
     </section>
 
-    <!-- KONTAKT -->
+    <!-- KONTAKT & FANCY FORMULÁR -->
     <section class="section contact-section" id="kontakt">
         <div class="container">
             <div class="section-title reveal-up">
@@ -1197,10 +1242,10 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
                             <label>Vaša správa / poznámka</label>
                             <textarea name="sprava" class="form-control" placeholder="Napíšte nám detaily..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Odoslať nezáväzný dopyt</button>
+                        <button type="submit" class="form-btn-submit">Odoslať nezáväzný dopyt ✨</button>
                     </form>
                     <div class="success-msg" id="success-msg">
-                        ✓ Ďakujeme za Váš dopyt! Čoskoro Vás budeme kontaktovať.
+                        ✓ Ďakujeme za Váš dopyt! Správa bola úspešne odoslaná, čoskoro Vás budeme kontaktovať.
                     </div>
                 </div>
             </div>
@@ -1230,7 +1275,7 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
             });
         });
 
-        // Plynulé scrollovanie s efektom zvýraznenia
+        // Plynulé scrollovanie
         const smoothLinks = document.querySelectorAll('.smooth-scroll-link');
 
         smoothLinks.forEach(link => {
@@ -1276,8 +1321,6 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
         window.addEventListener('resize', updateSliderWidth);
         window.addEventListener('load', () => {
             updateSliderWidth();
-
-            // Automatická úvodná animácia (ukážka pre používateľa hneď po načítaní)
             setTimeout(() => {
                 sliderRange.value = 30;
                 updateSliderWidth();
@@ -1294,7 +1337,6 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
 
         // Scroll Reveal Animácie
         const revealElements = document.querySelectorAll('.reveal-up');
-
         const revealOnScroll = function(entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1304,26 +1346,36 @@ Pri zariaďovaní rada spája staré s novým, nebojí sa farieb a verí, že pr
             });
         };
 
-        const observerOptions = {
-            root: null,
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver(revealOnScroll, observerOptions);
+        const observer = new IntersectionObserver(revealOnScroll, { root: null, threshold: 0.15 });
         revealElements.forEach(el => observer.observe(el));
 
-        // Odoslanie formulára
+        // Odoslanie formulára cez Web3Forms s AJAX-om pre pekný efekt
         const contactForm = document.getElementById('contact-form');
         const successMsg = document.getElementById('success-msg');
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            contactForm.style.transition = 'opacity 0.4s ease';
-            contactForm.style.opacity = '0';
-            setTimeout(() => {
-                contactForm.style.display = 'none';
-                successMsg.style.display = 'block';
-            }, 400);
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    contactForm.style.transition = 'opacity 0.4s ease';
+                    contactForm.style.opacity = '0';
+                    setTimeout(() => {
+                        contactForm.style.display = 'none';
+                        successMsg.style.display = 'block';
+                    }, 400);
+                } else {
+                    alert('Nastala chyba pri odosielaní. Skúste to prosím znova.');
+                }
+            } catch (error) {
+                alert('Chyba pripojenia. Skontrolujte internetové pripojenie.');
+            }
         });
     </script>
 </body>
