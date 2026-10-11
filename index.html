@@ -92,7 +92,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100px; /* Zväčšené pre lepšie umiestnenie loga */
+            height: 100px;
         }
 
         .logo {
@@ -105,7 +105,6 @@
             transform: scale(1.03);
         }
 
-        /* ZVÄČŠENÉ LOGO */
         .logo img {
             height: 250px;
             width: auto;
@@ -460,6 +459,205 @@
             font-weight: 500;
         }
 
+        /* SLUŽBY */
+        .services-bg {
+            background-color: var(--primary-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 45px 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(61, 53, 44, 0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(61, 53, 44, 0.08);
+            border-color: var(--accent);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--border-color);
+            margin-bottom: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .service-card:hover .service-number {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* --- CENNÍK & BALÍKY SLUŽIEB --- */
+        .pricing-section {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1c1813 100%);
+            color: var(--white);
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(61, 53, 44, 0.15);
+            border: 1px solid rgba(140, 120, 99, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        }
+
+        .pricing-card-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(61, 53, 44, 0.25);
+            border-color: var(--accent);
+        }
+
+        .pricing-card-box.highlighted {
+            border: 2px solid var(--accent);
+            background: linear-gradient(135deg, #2f2820 0%, #17130f 100%);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .pricing-title-box h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .pricing-title-box p {
+            font-size: 0.92rem;
+            color: #d1c8be;
+            margin-bottom: 24px;
+            min-height: 45px;
+        }
+
+        .pricing-price-box {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 6px;
+            line-height: 1;
+        }
+
+        .pricing-price-box span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #d1c8be;
+        }
+
+        .pricing-sub-note {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: block;
+            min-height: 24px;
+        }
+
+        .pricing-features-list {
+            list-style: none;
+            margin-bottom: 35px;
+            display: grid;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .pricing-features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #f0ece6;
+        }
+
+        .pricing-features-list .check {
+            width: 18px;
+            height: 18px;
+            background: rgba(140, 120, 99, 0.3);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.65rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
         /* --- INTERAKTÍVNY PRED A PO SLIDER --- */
         .slider-wrapper {
             max-width: 1050px;
@@ -633,84 +831,6 @@
         .badge-left { left: 28px; }
         .badge-right { right: 28px; }
 
-        /* SLUŽBY */
-        .services-bg {
-            background-color: var(--primary-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 32px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 45px 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(61, 53, 44, 0.03);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(61, 53, 44, 0.08);
-            border-color: var(--accent);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-number {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--border-color);
-            margin-bottom: 20px;
-            transition: color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .service-card:hover .service-number {
-            color: var(--accent);
-            transform: scale(1.05);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: var(--primary);
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-
-        .service-card:hover h3 {
-            color: var(--accent);
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-        }
-
         /* TÍM / O NÁS */
         .team-grid {
             display: grid;
@@ -866,6 +986,41 @@
             font-weight: 500;
         }
 
+        /* KLIKATEĽNÉ POLOŽKY NA KOPÍROVANIE */
+        .copy-click {
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            transition: color 0.2s;
+        }
+
+        .copy-click:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* TOAST HLÁŠENIE PO SKOPÍROVANÍ */
+        #copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            pointer-events: none;
+            font-size: 0.95rem;
+        }
+
+        #copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
         .form-container-box {
             position: relative;
             background: rgba(38, 32, 26, 0.7);
@@ -928,6 +1083,21 @@
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c7863' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 18px;
+        }
+
+        select.form-control option {
+            background-color: #1a1512;
+            color: var(--white);
+        }
+
         .form-control::placeholder {
             color: #7a7065;
         }
@@ -944,6 +1114,70 @@
             padding-right: 20px;
             resize: vertical;
             height: 120px;
+        }
+
+        /* --- PREMIER PACK SELECTION CARDS (FANCY VÝBER BALÍKOV) --- */
+        .packages-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .packages-selector-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-select-card {
+            background: rgba(20, 16, 12, 0.9);
+            border: 1px solid rgba(110, 95, 80, 0.4);
+            border-radius: 14px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-select-card:hover {
+            border-color: var(--accent);
+            background: rgba(30, 24, 18, 0.95);
+            transform: translateY(-2px);
+        }
+
+        .package-select-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .package-card-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .package-card-price {
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* AKTÍVNY STAV VYBRATÉHO BALÍKA */
+        .package-select-card.selected {
+            background: linear-gradient(135deg, rgba(140, 120, 99, 0.3) 0%, rgba(61, 53, 44, 0.8) 100%);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(140, 120, 99, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .package-select-card.selected .package-card-title {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         /* ČISTO CSS FAJKA PRE LIVE VALIDÁCIU */
@@ -1120,6 +1354,7 @@
                 <li><a href="#onas" class="smooth-scroll-link">O nás</a></li>
                 <li><a href="#co-je-homestaging" class="smooth-scroll-link">Čo je homestaging</a></li>
                 <li><a href="#sluzby" class="smooth-scroll-link">Služby</a></li>
+                <li><a href="#cennik" class="smooth-scroll-link">Cenník</a></li>
                 <li><a href="#premena" class="smooth-scroll-link">Premeny</a></li>
                 <li><a href="#kontakt" class="btn-nav smooth-scroll-link">Kontakt</a></li>
             </ul>
@@ -1133,6 +1368,7 @@
             <a href="#onas" class="mobile-link smooth-scroll-link">O nás</a>
             <a href="#co-je-homestaging" class="mobile-link smooth-scroll-link">Čo je homestaging</a>
             <a href="#sluzby" class="mobile-link smooth-scroll-link">Služby</a>
+            <a href="#cennik" class="mobile-link smooth-scroll-link">Cenník</a>
             <a href="#premena" class="mobile-link smooth-scroll-link">Premeny</a>
             <a href="#kontakt" class="mobile-link smooth-scroll-link">Kontakt</a>
         </div>
@@ -1142,8 +1378,8 @@
     <section class="hero">
         <div class="container hero-content reveal-up">
             <span class="hero-badge">Profesionálny Homestaging & Dizajn</span>
-            <h1>Predajte svoju nehnuteľnosť rýchlejšie a za vyššiu cenu</h1>
-            <p>Nemáme jeden univerzálny recept ani potrebu robiť všetko podľa posledných trendov. Veríme v osobitosť, nápady, funkčnosť a detaily, ktoré dokážu zmeniť celý dojem.</p>
+            <h1>Pomáhame nehnuteľnostiam zažiariť</h1>
+            <p>Pripravujeme nehnuteľnosti na predaj a prenájom, zariaďujeme nové bývanie a meníme existujúce interiéry. Nájdeme nábytok, farby a doplnky, ktoré z obyčajného priestoru vytvoria niečo osobité.</p>
             <div class="hero-btns">
                 <a href="#kontakt" class="btn btn-primary smooth-scroll-link">Nezáväzná konzultácia</a>
                 <a href="#premena" class="btn btn-secondary smooth-scroll-link">Pozrieť premeny <span class="css-arrow-right"></span></a>
@@ -1155,8 +1391,8 @@
     <section class="section container" id="onas">
         <div class="section-title reveal-up" style="margin-bottom: 30px;">
             <h2>Tri ženy. Tri pohľady. <span class="highlight-text" style="color: var(--accent);">Jeden spoločný cit pre krásu a premenu.</span></h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">Niektoré príbehy sa začínajú plánom. Ten náš sa začal celkom nenápadne – v priestore, kde sa stretávali dekorácie, nápady a rozhovory, ktoré sa postupne menili na priateľstvo.</p>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">Ľuba a Daniela sa s Katkou spoznali vďaka jej vtedajšieho obchodu. Najskôr ako zákazníčky, no časom sa z bežných stretnutí stali spoločné rozhovory, nápady a debaty o zariaďovaní, prerábkach a možnostiach, ako veci urobiť inak. Postupne sme zistili, že nás spája oveľa viac než len láska ku krásnym veciam – a tak prirodzene vzniklo HOPLA!</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">Niektoré príbehy sa začínajú plánom. Ten náš sa začal celkom nenápadne – v priestore, kde sa stretávali dekorácie a nápady.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">Najskôr ako zákazníčky, no časom sa z bežných stretnutí stali spoločné rozhovory, nápady a debaty o zariaďovaní, prerábkach a možnostiach, ako veci urobiť inak. Postupne sme zistili, že nás spája oveľa viac než len láska ku krásnym veciam – a tak prirodzene vzniklo HOPLA!</p>
             <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.15rem; font-weight: 700; color: var(--primary);">Každá sme iná, <span class="highlight-text" style="color: var(--accent);">každá vidíme veci trochu po svojom</span>. A práve v tom je <span class="highlight-text" style="color: var(--accent);">naša sila</span>.</p>
         </div>
 
@@ -1258,7 +1494,76 @@
         </div>
     </section>
 
-    <!-- INTERAKTÍVNA PREMENA -->
+    <!-- CENNÍK & BALÍKY SLUŽIEB -->
+    <section class="section pricing-section" id="cennik">
+        <div class="container">
+            <div class="section-title reveal-up">
+                <h2>Transparentné balíky služieb</h2>
+                <p>Vyberte si riešenie presne podľa toho, či nehnuteľnosť predávate, alebo si chcete skrášliť vlastné bývanie.</p>
+            </div>
+            
+            <div class="pricing-grid-3">
+                <!-- BALÍK 1: PREDÁVAME S VAMI -->
+                <div class="pricing-card-box reveal-up delay-1">
+                    <span class="pricing-badge">Pre realitný trh</span>
+                    <div class="pricing-title-box">
+                        <h3>Predávame s vami</h3>
+                        <p>Príprava bytov a domov na predaj či prenájom. Premiestnenie nábytku, odosobnenie, farby, doplnky, rastliny a príprava na fotografovanie.</p>
+                    </div>
+                    <div class="pricing-price-box">od 299 € <span>/ základ</span></div>
+                    <span class="pricing-sub-note">+ 70 € za každú ďalšiu izbu</span>
+                    <ul class="pricing-features-list">
+                        <li><span class="check">✓</span> Úvodná obhliadková konzultácia</li>
+                        <li><span class="check">✓</span> Optimalizácia a preskupenie nábytku</li>
+                        <li><span class="check">✓</span> Zakúpenie štýlových doplnkov a textílií na Slovensku/zahraničí</li>
+                        <li><span class="check">✓</span> Zariadenie priestoru</li>
+                        <li><span class="check">✓</span> Styling pripravený pre profesionálne fotenie</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary smooth-scroll-link select-package-btn" data-package="Predávame s vami" style="width: 100%; justify-content: center;">Vybrať balík</a>
+                </div>
+
+                <!-- BALÍK 2: MENÍME PRE VÁS (Zvýraznený) -->
+                <div class="pricing-card-box highlighted reveal-up delay-2">
+                    <span class="pricing-badge" style="background: var(--primary); border: 1px solid var(--accent);">Pre vlastné bývanie</span>
+                    <div class="pricing-title-box">
+                        <h3>Meníme pre Vás</h3>
+                        <p>Pre tých, čo chcú zmeniť svoj súčasný interiér alebo pre tých, ktorí si kúpili novú nehnuteľnosť a potrebuju ju zariadiť.</p>
+                    </div>
+                    <div class="pricing-price-box">od 250 €</div>
+                    <span class="pricing-sub-note">Individuálna dohoda podľa rozsahu</span>
+                    <ul class="pricing-features-list">
+                        <li><span class="check">✓</span> Osobná konzultácia a analýza potrieb</li>
+                        <li><span class="check">✓</span> Návrh novej farebnej palety a štýlu</li>
+                        <li><span class="check">✓</span> Zmeny usporiadania pre útulnosť</li>
+                        <li><span class="check">✓</span> Nákupný zoznam a tipy na dekorácie</li>
+                        <li><span class="check">✓</span> Zakúpenie štýlových dekorácii v zahraničí</li>
+                        <li><span class="check">✓</span> Zariadenie priestoru</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary smooth-scroll-link select-package-btn" data-package="Meníme pre Vás" style="width: 100%; justify-content: center;">Vybrať balík</a>
+                </div>
+
+                <!-- BALÍK 3: ZARIAĎUJEME NA MIERU -->
+                <div class="pricing-card-box reveal-up delay-3">
+                    <span class="pricing-badge">Kľúč v ruke</span>
+                    <div class="pricing-title-box">
+                        <h3>Zariadzujeme na mieru</h3>
+                        <p>Vyberieme štýlové/dizajnové prvky, farby, materiály, osvetlenie, nábytok aj doplnky tak, aby vytvorili harmonický celok a odrážali osobnosť človeka, ktorý v priestore žije.</p>
+                    </div>
+                    <div class="pricing-price-box" style="font-size: 2.2rem; margin-top: 10px; margin-bottom: 12px;">Na vyžiadanie</div>
+                    <span class="pricing-sub-note">Individuálna cenová ponuka</span>
+                    <ul class="pricing-features-list">
+                        <li><span class="check">✓</span> Všetky výhody predchádzajúcich balíkov</li>
+                        <li><span class="check">✓</span> Fyzická realizácia a zariaďovanie</li>
+                        <li><span class="check">✓</span> Výber originálnych a dizajnových kúskov na Slovensku/zahraničí</li>
+                        <li><span class="check">✓</span> Finálny styling priestoru do detailu</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary smooth-scroll-link select-package-btn" data-package="Zariadzujeme na mieru" style="width: 100%; justify-content: center;">Kontaktovať nás</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERAKTÍVNA PREMENA 1 -->
     <section class="section container" id="premena">
         <div class="section-title reveal-up">
             <h2>Sila profesionálneho homestagingu</h2>
@@ -1288,6 +1593,36 @@
         </div>
     </section>
 
+    <!-- INTERAKTÍVNA PREMENA 2 (Ďalšia ukážka pred a po) -->
+    <section class="section container" style="padding-top: 0;" id="premena-2">
+        <div class="section-title reveal-up">
+            <h2>Ďalšia premena interiéru</h2>
+            <p>Pozrite sa na detaily, ktoré dokážu premeniť obyčajný priestor na domov.</p>
+        </div>
+        <div class="slider-wrapper reveal-up delay-1">
+            <div class="comparison-slider" id="comp-slider-2">
+                <div class="slider-bg-blur" style="background-image: url('images/po2.png');"></div>
+                <div class="slider-img">
+                    <img src="images/po2.png" alt="Po stagingu 2" onerror="this.onerror=null; this.src='images/po2.jpg';">
+                    <span class="badge-label badge-right">PO STAGINGU</span>
+                </div>
+                
+                <div class="slider-before-wrap" id="before-wrap-2" style="width: 50%;">
+                    <div class="slider-before-bg-blur" id="before-bg-blur-2" style="background-image: url('images/pred2.png');"></div>
+                    <div class="slider-before-img" id="before-img-2">
+                        <img src="images/pred2.png" alt="Pred stagingom 2" onerror="this.onerror=null; this.src='images/pred2.jpg';">
+                        <span class="badge-label badge-left">PRED STAGINGOM</span>
+                    </div>
+                </div>
+
+                <div class="slider-handle" id="slider-handle-2" style="left: 50%;">
+                    <div class="slider-button">&larr;&rarr;</div>
+                </div>
+                <input type="range" class="slider-input" id="slider-range-2" min="0" max="100" value="50">
+            </div>
+        </div>
+    </section>
+
     <!-- KONTAKT & INTERAKTÍVNY FORMULÁR -->
     <section class="section contact-section" id="kontakt">
         <div class="container">
@@ -1297,25 +1632,27 @@
             </div>
             <div class="contact-wrapper">
                 <div class="reveal-up delay-1">
+                    <!-- E-mail s funkciou kopírovania -->
                     <div class="contact-info-item">
                         <div class="css-dot-icon"></div>
                         <div>
                             <h4>E-mailová adresa</h4>
-                            <p>info@hoplaabyvania.sk</p>
+                            <p class="copy-click" data-copy="info@hoplahomestaging.sk" title="Kliknutím skopírujete">info@hoplahomestaging.sk <span style="font-size: 0.8rem; opacity: 0.7;">(skopírovať)</span></p>
                         </div>
                     </div>
+                    <!-- Telefón s funkciou kopírovania -->
                     <div class="contact-info-item">
                         <div class="css-dot-icon"></div>
                         <div>
                             <h4>Telefónny kontakt</h4>
-                            <p>+421 9xx xxx xxx</p>
+                            <p class="copy-click" data-copy="+4219xxxxxxxx" title="Kliknutím skopírujete">+421 9xx xxx xxx <span style="font-size: 0.8rem; opacity: 0.7;">(skopírovať)</span></p>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="css-dot-icon"></div>
                         <div>
                             <h4>Sociálne siete</h4>
-                            <p>Instagram / Facebook: @hoplaabyvania</p>
+                            <p>Instagram / Facebook: @hoplahomestaging</p>
                         </div>
                     </div>
                 </div>
@@ -1339,6 +1676,28 @@
                             <!-- Web3Forms Access Key -->
                             <input type="hidden" name="access_key" value="2b9c381a-32a6-4bb2-8374-be84ea1b1076">
 
+                            <!-- VÝBER PRÉMIOVÉHO BALÍKA (FANCY KARTY) -->
+                            <div class="form-group">
+                                <label>Zvoľte si váš prémiový balík</label>
+                                <div class="packages-selector-grid">
+                                    <label class="package-select-card" data-val="Predávame s vami">
+                                        <input type="radio" name="vybrany_balik" value="Predávame s vami">
+                                        <div class="package-card-title">Predávame s vami</div>
+                                        <div class="package-card-price">od 299 €</div>
+                                    </label>
+                                    <label class="package-select-card" data-val="Meníme pre Vás">
+                                        <input type="radio" name="vybrany_balik" value="Meníme pre Vás" checked>
+                                        <div class="package-card-title">Meníme pre Vás</div>
+                                        <div class="package-card-price">od 250 €</div>
+                                    </label>
+                                    <label class="package-select-card" data-val="Zariadzujeme na mieru">
+                                        <input type="radio" name="vybrany_balik" value="Zariadzujeme na mieru">
+                                        <div class="package-card-title">Zariadzujeme mieru</div>
+                                        <div class="package-card-price">Individuálne</div>
+                                    </label>
+                                </div>
+                            </div>
+
                             <!-- MENO A PRIEZVISKO (>3 znaky) -->
                             <div class="form-group" id="group-meno">
                                 <label>Meno a priezvisko</label>
@@ -1359,13 +1718,36 @@
 
                             <!-- TELEFÓNNE ČÍSLO (min. 9 číslic) -->
                             <div class="form-group" id="group-telefon">
-                                <label>Telefónne číslo</label>
+                                <label>Telefónny kontakt</label>
                                 <div class="input-wrapper">
                                     <input type="tel" name="telefon" id="input-telefon" class="form-control" placeholder="+421 ..." autocomplete="tel">
                                     <div class="validation-check"></div>
                                 </div>
                             </div>
 
+                            <!-- LOKALITA (Výber + vlastná možnosť) -->
+                            <div class="form-group" id="group-lokalita-select">
+                                <label>Lokalita nehnuteľnosti</label>
+                                <div class="input-wrapper">
+                                    <select name="lokalita_vyber" id="lokalita-select" class="form-control">
+                                        <option value="Prešov a okolie">Prešov a okolie</option>
+                                        <option value="Košice a okolie">Košice a okolie</option>
+                                        <option value="Spišská Nová Ves a okolie">Spišská Nová Ves a okolie</option>
+                                        <option value="Poprad a okolie">Poprad a okolie</option>
+                                        <option value="Vlastná lokalita">Iná lokalita (napíšem vlastnú)...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- VLASTNÁ LOKALITA (Skrytá, kým sa nezvolí "Iná lokalita") -->
+                            <div class="form-group" id="group-lokalita-vlastna" style="display: none;">
+                                <label>Zadajte vašu lokalitu</label>
+                                <div class="input-wrapper">
+                                    <input type="text" name="lokalita_vlastna" id="input-lokalita-vlastna" class="form-control" placeholder="napr. Bardejov, Sabinov...">
+                                </div>
+                            </div>
+
+                            <!-- TYP NEHNUTEĽNOSTI -->
                             <div class="form-group">
                                 <label>Typ nehnuteľnosti</label>
                                 <div class="input-wrapper">
@@ -1390,6 +1772,9 @@
         </div>
     </section>
 
+    <!-- TOAST OKNO PRE POTVRDENIE SKOPÍROVANIA -->
+    <div id="copy-toast">Skopírované do schránky!</div>
+
     <!-- PÄTIČKA -->
     <footer>
         <div class="container">
@@ -1413,13 +1798,67 @@
             });
         });
 
-        // Plynulé scrollovanie
+        // Plynulé scrollovanie a predvyberanie balíka z cenníka
         const smoothLinks = document.querySelectorAll('.smooth-scroll-link');
+        const packageCards = document.querySelectorAll('.package-select-card');
+
+        // Logika pre interaktívne výberové karty balíkov vo formulári
+        function updatePackageCardStyles() {
+            packageCards.forEach(card => {
+                const radio = card.querySelector('input[type="radio"]');
+                if (radio.checked) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        }
+
+        packageCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const radio = card.querySelector('input[type="radio"]');
+                radio.checked = true;
+                updatePackageCardStyles();
+            });
+        });
+
+        // Inicializácia stavu pri načítaní
+        updatePackageCardStyles();
+
+        // Prepojenie tlačidiel v cenníku priamo na formulár s predvýberom balíka
+        const selectPackageBtns = document.querySelectorAll('.select-package-btn');
+        selectPackageBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const packageName = this.getAttribute('data-package');
+                
+                // Nájde a zaškrtne príslušný radio button
+                packageCards.forEach(card => {
+                    const radio = card.querySelector('input[type="radio"]');
+                    if (radio.value === packageName) {
+                        radio.checked = true;
+                    }
+                });
+                updatePackageCardStyles();
+
+                // Plynulý posun na kontakt
+                const targetSection = document.querySelector('#kontakt');
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    targetSection.classList.remove('section-highlight');
+                    void targetSection.offsetWidth;
+                    targetSection.classList.add('section-highlight');
+                }
+            });
+        });
 
         smoothLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#') && targetId.length > 1) {
+                if (targetId.startsWith('#') && targetId.length > 1 && !this.classList.contains('select-package-btn')) {
                     e.preventDefault();
                     const targetSection = document.querySelector(targetId);
                     
@@ -1437,7 +1876,7 @@
             });
         });
 
-        // Interaktívny Before / After Slider
+        // Interaktívny Before / After Slider 1
         const sliderRange = document.getElementById('slider-range');
         const beforeWrap = document.getElementById('before-wrap');
         const sliderHandle = document.getElementById('slider-handle');
@@ -1457,17 +1896,46 @@
 
         sliderRange.addEventListener('input', updateSliderWidth);
         window.addEventListener('resize', updateSliderWidth);
+
+        // Interaktívny Before / After Slider 2
+        const sliderRange2 = document.getElementById('slider-range-2');
+        const beforeWrap2 = document.getElementById('before-wrap-2');
+        const sliderHandle2 = document.getElementById('slider-handle-2');
+        const beforeImg2 = document.getElementById('before-img-2');
+        const beforeBgBlur2 = document.getElementById('before-bg-blur-2');
+        const sliderContainer2 = document.getElementById('comp-slider-2');
+
+        function updateSliderWidth2() {
+            const val = sliderRange2.value;
+            beforeWrap2.style.width = val + '%';
+            sliderHandle2.style.left = val + '%';
+            
+            const containerWidth = sliderContainer2.offsetWidth;
+            beforeImg2.style.width = containerWidth + 'px';
+            beforeBgBlur2.style.width = containerWidth + 'px';
+        }
+
+        sliderRange2.addEventListener('input', updateSliderWidth2);
+        window.addEventListener('resize', updateSliderWidth2);
+
         window.addEventListener('load', () => {
             updateSliderWidth();
+            updateSliderWidth2();
             setTimeout(() => {
                 sliderRange.value = 30;
+                sliderRange2.value = 30;
                 updateSliderWidth();
+                updateSliderWidth2();
                 setTimeout(() => {
                     sliderRange.value = 70;
+                    sliderRange2.value = 70;
                     updateSliderWidth();
+                    updateSliderWidth2();
                     setTimeout(() => {
                         sliderRange.value = 50;
+                        sliderRange2.value = 50;
                         updateSliderWidth();
+                        updateSliderWidth2();
                     }, 600);
                 }, 600);
             }, 800);
@@ -1486,6 +1954,38 @@
 
         const observer = new IntersectionObserver(revealOnScroll, { root: null, threshold: 0.15 });
         revealElements.forEach(el => observer.observe(el));
+
+        // FUNKCIA NA KOPÍROVANIE PO KLIKNUTÍ
+        const copyElements = document.querySelectorAll('.copy-click');
+        const copyToast = document.getElementById('copy-toast');
+
+        copyElements.forEach(el => {
+            el.addEventListener('click', () => {
+                const textToCopy = el.getAttribute('data-copy');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    copyToast.classList.add('show');
+                    setTimeout(() => {
+                        copyToast.classList.remove('show');
+                    }, 2000);
+                });
+            });
+        });
+
+        // ZOBRAZENIE / SKRYTIE VLASTNEJ LOKALITY PODĽA VÝBERU
+        const lokalitaSelect = document.getElementById('lokalita-select');
+        const groupLokalitaVlastna = document.getElementById('group-lokalita-vlastna');
+        const inputLokalitaVlastna = document.getElementById('input-lokalita-vlastna');
+
+        lokalitaSelect.addEventListener('change', () => {
+            if (lokalitaSelect.value === 'Vlastná lokalita') {
+                groupLokalitaVlastna.style.display = 'block';
+                inputLokalitaVlastna.required = true;
+            } else {
+                groupLokalitaVlastna.style.display = 'none';
+                inputLokalitaVlastna.required = false;
+                inputLokalitaVlastna.value = '';
+            }
+        });
 
         // LIVE VALIDÁCIA (Meno, E-mail, Telefón)
         const inputMeno = document.getElementById('input-meno');
